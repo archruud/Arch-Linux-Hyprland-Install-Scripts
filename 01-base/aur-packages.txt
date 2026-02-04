@@ -1,0 +1,49 @@
+# AUR Packages - Standalone installasjon
+# Programmer fra AUR som ikke trenger konfigurasjon
+# Ett program per linje, linjer som starter med # er kommentarer
+
+# === HYPRLAND ECOSYSTEM ===
+# hyprpicker             # Color picker
+hyprsunset             # Blue light filter
+hyprshade              # Shader effects
+
+# === WAYLAND TOOLS ===
+wl-screenrec          # Screen recorder
+wf-recorder            # Alternative screen recorder
+
+# === APPEARANCE ===
+nwg-look               # GTK theme switcher
+qt5ct                  # Qt5 theme config
+qt6ct                  # Qt6 theme config
+kvantum               # Qt theme engine
+
+# === FILE MANAGERS ===
+# ranger                # Terminal file manager (hvis du vil ha det)
+# nnn                   # Minimal file manager
+
+# === DEVELOPMENT ===
+# visual-studio-code-bin  # VS Code
+# sublime-text-4         # Sublime Text
+zed
+nmgui-bin
+
+# === UTILITIES ===
+rofi                    # Rofi for Wayland
+# wofi                  # Alternative launcher
+fuzzel                  # Another launcher
+
+# === SYSTEM ===
+auto-cpufreq            # Automatic CPU frequency scaling
+
+# === OPTIONAL ===
+# spotify               # Music streaming
+# discord               # Chat
+# brave-bin             # Browser
+# firefox-developer-edition  # Firefox dev
+firefox-developer-edition-i18n-nb-no   # Firefox Norsk Bokmål
+libreoffice-still-nb    # Office Norsk
+kate                    # kate textbehandler fra KDE Plasma
+
+
+# === NETWORK ===
+nmgui-bin               # Wifi gui - gui bassert nmcli terminal
