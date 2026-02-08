@@ -37,13 +37,16 @@ auto-cpufreq            # Automatic CPU frequency scaling
 
 # === OPTIONAL ===
 # spotify               # Music streaming
-# discord               # Chat
+discord               # Chat
 # brave-bin             # Browser
 # firefox-developer-edition  # Firefox dev
 firefox-developer-edition-i18n-nb-no   # Firefox Norsk Bokmål
 libreoffice-still-nb    # Office Norsk
 kate                    # kate textbehandler fra KDE Plasma
-
+github-desktop-plus-bin # Fork of GitHub Desktop with extra features and improvements.
 
 # === NETWORK ===
 nmgui-bin               # Wifi gui - gui bassert nmcli terminal
+
+# === FONTS ===
+nerd-fonts-git    #Iconic font aggregator, collection, and patcher: 34 fonts (77k variations)
