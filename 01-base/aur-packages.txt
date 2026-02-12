@@ -3,29 +3,22 @@
 # Ett program per linje, linjer som starter med # er kommentarer
 
 # === HYPRLAND ECOSYSTEM ===
-# hyprpicker             # Color picker
-hyprsunset             # Blue light filter
-hyprshade              # Shader effects
+hyprpicker             # Color picker
 
 # === WAYLAND TOOLS ===
-wl-screenrec          # Screen recorder
-wf-recorder            # Alternative screen recorder
+# wl-screenrec          # Screen recorder
+# wf-recorder            # Alternative screen recorder
 
 # === APPEARANCE ===
-nwg-look               # GTK theme switcher
+# nwg-look               # GTK theme switcher
 qt5ct                  # Qt5 theme config
 qt6ct                  # Qt6 theme config
 kvantum               # Qt theme engine
 
 # === FILE MANAGERS ===
-# ranger                # Terminal file manager (hvis du vil ha det)
-# nnn                   # Minimal file manager
 
 # === DEVELOPMENT ===
-# visual-studio-code-bin  # VS Code
-# sublime-text-4         # Sublime Text
 zed
-nmgui-bin
 
 # === UTILITIES ===
 rofi                    # Rofi for Wayland
@@ -37,10 +30,7 @@ auto-cpufreq            # Automatic CPU frequency scaling
 
 # === OPTIONAL ===
 # spotify               # Music streaming
-discord               # Chat
-# brave-bin             # Browser
-# firefox-developer-edition  # Firefox dev
-firefox-developer-edition-i18n-nb-no   # Firefox Norsk Bokmål
+discord                 #
 libreoffice-still-nb    # Office Norsk
 kate                    # kate textbehandler fra KDE Plasma
 github-desktop-plus-bin # Fork of GitHub Desktop with extra features and improvements.
@@ -49,4 +39,4 @@ github-desktop-plus-bin # Fork of GitHub Desktop with extra features and improve
 nmgui-bin               # Wifi gui - gui bassert nmcli terminal
 
 # === FONTS ===
-nerd-fonts-git    #Iconic font aggregator, collection, and patcher: 34 fonts (77k variations)
+# nerd-fonts-git    #Iconic font aggregator, collection, and patcher: 34 fonts (77k variations)
