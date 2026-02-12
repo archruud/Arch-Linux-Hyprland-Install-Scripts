@@ -14,20 +14,11 @@ xdg-user-dirs          # User directories
 
 # === TERMINAL & TOOLS ===
 kitty                  # Terminal emulator
-# alacritty            # Alternativ terminal
-# btop                 # System monitor
-# htop                 # Process viewer
-# neofetch             # System info
 wget                   # Download tool
 curl                   # Transfer tool
 git                    # Version control
-unzip                  # Archive tool
-p7zip                  # 7z support
-# ripgrep              # Fast grep
-# fd                   # Fast find
 bat                    # Cat replacement
 eza                    # Ls replacement
-# zoxide               # Cd replacement
 jq                     # Java
 
 # === FONTS ===
@@ -48,8 +39,6 @@ gvfs-mtp               # MTP support (phones)
 
 # === MEDIA ===
 mpv                    # Video player
-# vlc                    # Alternative video player
-# imv                    # Image viewer
 gwenview               # KDE image viewer
 
 # === NETWORK ===
@@ -70,10 +59,6 @@ alsa-utils             # ALSA utilities
 # === DEVELOPMENT (optional) ===
 python
 python-pip
-# nodejs
-# npm
-# rust
-# go
 
 # === UTILITIES ===
 wl-clipboard           # Wayland clipboard
