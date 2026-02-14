@@ -55,13 +55,12 @@ The installer will guide you through the installation process, allowing you to s
 ├── 10-overview/             # Workspace overview
 ├── 11-fuzzel-hyprpicker/    # Application launcher and color picker
 ├── 12-kitty/                # Kitty terminal configuration
-├── 13-hypridle/             # Additional idle configuration
+├── 13-rofi/                 # Application launcher
 ├── 14-screenshots/          # Screenshot tools and configuration
 ├── 15-sddm/                 # Display manager (SDDM)
 ├── 16-dunst/                # Notification daemon
 ├── 17-waybar/               # Status bar
 ├── 18-network/              # Network configuration
-├── 19-rofi/                 # Application launcher
 ├── 25-scripts-and-files/    # Additional scripts and configuration files
 ├── 30-make-executable/      # Script permissions setup
 ├── 99-utilities/            # Additional utilities
