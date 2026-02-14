@@ -61,8 +61,9 @@ The installer will guide you through the installation process, allowing you to s
 ├── 16-dunst/                # Notification daemon
 ├── 17-waybar/               # Status bar
 ├── 18-network/              # Network configuration
+├── 19-make-executable/      # Script permissions setup
 ├── 25-scripts-and-files/    # Additional scripts and configuration files
-├── 30-make-executable/      # Script permissions setup
+├── 30-make-executable/      # Legacy script permissions (deprecated)
 ├── 99-utilities/            # Additional utilities
 ├── scripts/                 # Helper scripts
 ├── install-order.conf       # Installation order configuration
@@ -92,6 +93,7 @@ The installer will guide you through the installation process, allowing you to s
 - **Kitty**: GPU-accelerated terminal emulator
 - **Dunst**: Lightweight notification daemon
 - **Screenshots**: Complete screenshot solution with editing tools
+- **Make Executable**: Automatically sets correct permissions for all scripts
 
 ### Networking
 
@@ -178,10 +180,10 @@ pacman -Qi <package-name>
 
 ### Scripts Not Executable
 
-Run the executable script:
+The 19-make-executable module handles this automatically during installation. If you need to fix permissions manually:
 
 ```bash
-cd 30-make-executable
+cd 19-make-executable
 ./make-executable.sh
 ```
 
