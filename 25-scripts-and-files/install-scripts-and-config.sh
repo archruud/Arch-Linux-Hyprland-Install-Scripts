@@ -1,58 +1,77 @@
 #!/bin/bash
 
-# Farger for output
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+# ============================================================
+# Installerer scripts og hyprland.conf
+# ============================================================
 
-echo -e "${BLUE}=== Installerer scripts og hyprland.conf ===${NC}\n"
+# Finn hvor dette scriptet ligger
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# Definerer kilde og destinasjon
-SOURCE_DIR="25-scripts-and-files"
-HYPR_CONFIG="$HOME/.config/hypr"
-SCRIPTS_DEST="$HYPR_CONFIG/scripts"
+echo "══════════════════════════════════════════════════════════════"
+echo " Installerer scripts og hyprland.conf "
+echo "══════════════════════════════════════════════════════════════"
+echo ""
+echo "Script kjøres fra: $SCRIPT_DIR"
+echo ""
 
-# Sjekk om kilde-mappen eksisterer
-if [ ! -d "$SOURCE_DIR" ]; then
-    echo -e "${RED}Feil: Finner ikke mappen '$SOURCE_DIR'${NC}"
-    echo "Kjør scriptet fra samme mappe som '25-scripts-and-files' ligger i"
+# Definer kilde og destinasjon
+SOURCE_HYPRLAND="$SCRIPT_DIR/hyprland.conf"
+SOURCE_SCRIPTS="$SCRIPT_DIR/scripts"
+DEST_HYPR="$HOME/.config/hypr"
+DEST_SCRIPTS="$HOME/.local/share/bin"
+
+# Sjekk at kildefilene eksisterer
+if [ ! -f "$SOURCE_HYPRLAND" ]; then
+    echo "❌ FEIL: Finner ikke hyprland.conf i $SCRIPT_DIR"
     exit 1
 fi
 
-# Opprett scripts-mappe hvis den ikke eksisterer
-echo -e "${BLUE}Oppretter/sjekker scripts-mappe...${NC}"
-mkdir -p "$SCRIPTS_DEST"
+if [ ! -d "$SOURCE_SCRIPTS" ]; then
+    echo "❌ FEIL: Finner ikke scripts mappen i $SCRIPT_DIR"
+    exit 1
+fi
 
-# Kopier scripts-mappen
-if [ -d "$SOURCE_DIR/scripts" ]; then
-    echo -e "${GREEN}Kopierer scripts til $SCRIPTS_DEST${NC}"
-    cp -rf "$SOURCE_DIR/scripts/"* "$SCRIPTS_DEST/"
-    
-    # Gjør alle scripts executable
-    echo -e "${BLUE}Gjør alle scripts executable...${NC}"
-    chmod +x "$SCRIPTS_DEST"/*.sh
-    echo -e "${GREEN}Alle scripts er nå executable${NC}\n"
+echo "✓ Funnet kildefiler:"
+echo "  - $SOURCE_HYPRLAND"
+echo "  - $SOURCE_SCRIPTS"
+echo ""
+
+# Opprett destinasjonsmapper hvis de ikke eksisterer
+mkdir -p "$DEST_HYPR"
+mkdir -p "$DEST_SCRIPTS"
+
+echo "📁 Kopierer hyprland.conf til $DEST_HYPR"
+cp -f "$SOURCE_HYPRLAND" "$DEST_HYPR/hyprland.conf"
+
+if [ $? -eq 0 ]; then
+    echo "✓ hyprland.conf kopiert"
 else
-    echo -e "${RED}Advarsel: Finner ikke scripts-mappe i $SOURCE_DIR${NC}\n"
+    echo "❌ Feil ved kopiering av hyprland.conf"
+    exit 1
 fi
 
-# Kopier hyprland.conf
-if [ -f "$SOURCE_DIR/hyprland.conf" ]; then
-    echo -e "${GREEN}Kopierer hyprland.conf til $HYPR_CONFIG${NC}"
-    cp -f "$SOURCE_DIR/hyprland.conf" "$HYPR_CONFIG/hyprland.conf"
-    echo -e "${GREEN}hyprland.conf er oppdatert${NC}\n"
+echo ""
+echo "📁 Kopierer scripts til $DEST_SCRIPTS"
+cp -rf "$SOURCE_SCRIPTS/"* "$DEST_SCRIPTS/"
+
+if [ $? -eq 0 ]; then
+    echo "✓ Scripts kopiert"
 else
-    echo -e "${RED}Advarsel: Finner ikke hyprland.conf i $SOURCE_DIR${NC}\n"
+    echo "❌ Feil ved kopiering av scripts"
+    exit 1
 fi
 
-# Vis oversikt over installerte filer
-echo -e "${BLUE}=== Installasjon fullført ===${NC}\n"
-echo -e "${GREEN}Scripts installert i:${NC} $SCRIPTS_DEST"
-if [ -d "$SCRIPTS_DEST" ]; then
-    ls -lh "$SCRIPTS_DEST"/*.sh 2>/dev/null
-fi
+# Gjør alle scripts kjørbare
+echo ""
+echo "🔧 Gjør scripts kjørbare..."
+chmod +x "$DEST_SCRIPTS/"*
 
-echo -e "\n${GREEN}Konfigurasjon installert:${NC} $HYPR_CONFIG/hyprland.conf"
-
-echo -e "\n${BLUE}Kjør 'hyprctl reload' eller restart Hyprland for å aktivere endringene${NC}"
+echo ""
+echo "══════════════════════════════════════════════════════════════"
+echo "✓ Installasjon fullført!"
+echo "══════════════════════════════════════════════════════════════"
+echo ""
+echo "Filer installert:"
+echo "  - $DEST_HYPR/hyprland.conf"
+echo "  - Scripts i $DEST_SCRIPTS"
+echo ""
