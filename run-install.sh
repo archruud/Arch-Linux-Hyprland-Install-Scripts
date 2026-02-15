@@ -56,7 +56,6 @@ INSTALL_ORDER=(
     "18-network"
     "19-make-executable"
     "25-scripts-and-files"
-    "99-utilities"
 )
 
 # Kun SDDM trenger sudo
