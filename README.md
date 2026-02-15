@@ -64,10 +64,7 @@ The installer will guide you through the installation process, allowing you to s
 ├── 19-make-executable/      # Script permissions setup
 ├── 25-scripts-and-files/    # Additional scripts and configuration files
 ├── 30-make-executable/      # Legacy script permissions (deprecated)
-├── 99-utilities/            # Additional utilities
-├── scripts/                 # Helper scripts
 ├── install-order.conf       # Installation order configuration
-├── quick-reference.sh       # Quick reference guide
 └── run-installer.sh         # Main installer script
 ```
 
