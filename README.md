@@ -63,7 +63,6 @@ The installer will guide you through the installation process, allowing you to s
 ├── 18-network/              # Network configuration
 ├── 19-make-executable/      # Script permissions setup
 ├── 25-scripts-and-files/    # Additional scripts and configuration files
-├── 30-make-executable/      # Legacy script permissions (deprecated)
 ├── install-order.conf       # Installation order configuration
 └── run-installer.sh         # Main installer script
 ```
