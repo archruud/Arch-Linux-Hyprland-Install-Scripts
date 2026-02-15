@@ -13,12 +13,12 @@ CYAN='\033[0;36m'
 NC='\033[0m'
 
 echo -e "${GREEN}══════════════════════════════════════════════════════════════${NC}"
-echo -e "${GREEN} Hyprland Complete Installation - Minimal Sudo${NC}"
+echo -e "${GREEN} Hyprland Complete Installation${NC}"
 echo -e "${GREEN}══════════════════════════════════════════════════════════════${NC}"
 echo ""
 
 # Sjekk at vi er i riktig mappe
-if [ ! -f "run-installer.sh" ]; then
+if [ ! -f "install-order.conf" ]; then
     echo -e "${RED}❌ FEIL: Må kjøres fra repo-roten!${NC}"
     echo "   cd ~/Arch-Linux-Hyprland-Install-Scripts"
     exit 1
@@ -84,7 +84,7 @@ echo ""
 echo -e "${YELLOW}📝 Merk:${NC}"
 echo "  • Kun SDDM trenger sudo (kopierer til /usr/share/)"
 echo "  • Pakkeinstallasjoner (pacman) spør selv om passord"
-echo "  • Resten kopierer til ~/.config/ (ingen sudo)"
+echo "  • 25-scripts-and-files kjører SIST (overskriver med ferdig hyprland.conf)"
 echo ""
 
 # Installer hver komponent
