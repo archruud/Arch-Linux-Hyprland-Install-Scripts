@@ -19,6 +19,7 @@ kvantum               # Qt theme engine
 
 # === DEVELOPMENT ===
 zed
+tmux
 
 # === UTILITIES ===
 rofi                    # Rofi for Wayland
