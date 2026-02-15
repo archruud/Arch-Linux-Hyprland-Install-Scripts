@@ -55,6 +55,7 @@ pipewire-alsa          # ALSA compatibility
 pipewire-jack          # JACK compatibility
 wireplumber            # Session manager
 alsa-utils             # ALSA utilities
+pamixer                # Audio
 
 # === DEVELOPMENT (optional) ===
 python
