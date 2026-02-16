@@ -11,6 +11,10 @@ polkit-gnome           # Polkit authentication agent
 gnome-keyring          # Keyring for passord
 xdg-desktop-portal-hyprland  # Desktop portal for Hyprland
 xdg-user-dirs          # User directories
+polkit                 # Passwords
+udisks2                # Disks
+polkit-gnome           # Disks
+gnome-keyring          # Passwords
 
 # === TERMINAL & TOOLS ===
 kitty                  # Terminal emulator
