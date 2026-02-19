@@ -20,6 +20,7 @@ kvantum               # Qt theme engine
 # === DEVELOPMENT ===
 zed
 tmux
+hdrop-git # Dropdown terminal/program toggle for Hyprland - SUPER+CTRL+RETURN
 
 # === UTILITIES ===
 rofi                    # Rofi for Wayland
