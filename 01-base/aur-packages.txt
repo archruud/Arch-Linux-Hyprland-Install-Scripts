@@ -41,5 +41,6 @@ github-desktop-plus-bin # Fork of GitHub Desktop with extra features and improve
 # === NETWORK ===
 nmgui-bin               # Wifi gui - gui bassert nmcli terminal
 
-# === FONTS ===
+# === FONTS AND ICONS ===
 # nerd-fonts-git    #Iconic font aggregator, collection, and patcher: 34 fonts (77k variations)
+flat-remix 
