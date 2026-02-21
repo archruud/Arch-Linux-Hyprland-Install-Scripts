@@ -26,6 +26,7 @@ hdrop-git # Dropdown terminal/program toggle for Hyprland - SUPER+CTRL+RETURN
 rofi                    # Rofi for Wayland
 # wofi                  # Alternative launcher
 fuzzel                  # Another launcher
+# snappy-switcher         # A blazing-fast, animated Alt+Tab window switcher for Hyprland
 
 # === SYSTEM ===
 auto-cpufreq            # Automatic CPU frequency scaling
