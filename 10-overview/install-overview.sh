@@ -83,7 +83,7 @@ fi
 # Installer Quickshell
 print_step "Installerer Quickshell..."
 echo "Dette kan ta noen minutter (kompilering)..."
-if $AUR_HELPER -S --needed --noconfirm quickshell-git; then
+if $AUR_HELPER -S --needed --noconfirm quickshell; then
     print_success "Quickshell installert"
 else
     print_error "Feil under installasjon av Quickshell"
