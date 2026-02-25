@@ -539,21 +539,4 @@ echo
 echo "✅ MAKSIMAL PROTOKOLL-STØTTE UTEN UNØDVENDIGE APPER!"
 echo "✅ Dolphin kan nå se og koble til ALT!"
 
-# Tilby å kjøre network scan nå
-read -p "Vil du kjøre full nettverksscanning nå? (y/n): " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "Kjører full nettverksscanning..."
-    "$HOME/.local/bin/scan-network"
-fi
-
-echo
-read -p "Vil du åpne network browser i Dolphin nå? (y/n): " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    echo "🔄 Åpner SMB browser (verificert tilgjengelig)..."
-    dolphin smb:/ &
-    echo "✓ SMB browser åpnet - bør vise Windows/NAS enheter"
-fi
-
-echo "Script fullført! Gaming nettverk er klart! 🎮🌐"
+echo "Script fullført! Nettverk er klart! 🎮🌐"
