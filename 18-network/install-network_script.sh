@@ -78,11 +78,10 @@ ALL_PACKAGES=(
     
     # Dolphin file manager
     "dolphin"            # File manager
-    "filezilla"          # FTP client
 )
 
 echo "Installerer PROTOKOLL & DRIVER pakker med --needed (kun det som trengs)..."
-echo "📦 Fokus: Maksimal protokoll-støtte i Dolphin og FileZilla"
+echo "📦 Fokus: Maksimal protokoll-støtte i Dolphin"
 echo "📦 Total pakker: ${#ALL_PACKAGES[@]} (kun drivers og protokoller)"
 echo
 
@@ -538,7 +537,7 @@ echo
 echo "✅ Alle protokoller verificert tilgjengelige i Plasma 6!"
 echo
 echo "✅ MAKSIMAL PROTOKOLL-STØTTE UTEN UNØDVENDIGE APPER!"
-echo "✅ Dolphin og FileZilla kan nå se og koble til ALT!"
+echo "✅ Dolphin kan nå se og koble til ALT!"
 
 # Tilby å kjøre network scan nå
 read -p "Vil du kjøre full nettverksscanning nå? (y/n): " -n 1 -r
