@@ -16,7 +16,8 @@ echo ""
 # Paths
 WALLPAPER_DIR="$HOME/.config/hypr/wallpapers"
 HYPRLAND_CONFIG="$HOME/.config/hypr/hyprland.conf"
-SWWW_SCRIPT="$HOME/.config/hypr/swww-wallpaper.sh"
+SCRIPTS_DIR="$HOME/.config/hypr/scripts"
+SWWW_SCRIPT="$SCRIPTS_DIR/swww-wallpaper.sh"
 
 # Finn hvor dette scriptet ligger
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -25,9 +26,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if ! command -v swww &> /dev/null; then
     echo -e "${YELLOW}SWWW er ikke installert. Installerer...${NC}"
     if command -v yay &> /dev/null; then
-        yay -S --noconfirm swww
+        yay -S --needed --answerdiff=None --answerclean=None swww
     elif command -v paru &> /dev/null; then
-        paru -S --noconfirm swww
+        paru -S --needed --noconfirm swww
     else
         echo -e "${RED}Installer swww manuelt: yay -S swww${NC}"
         exit 1
@@ -37,6 +38,7 @@ fi
 # Opprett directories
 mkdir -p "$HOME/.config/hypr"
 mkdir -p "$WALLPAPER_DIR"
+mkdir -p "$SCRIPTS_DIR"
 
 # Velg wallpaper
 echo -e "${CYAN}Hvilken oppløsning vil du bruke?${NC}"
@@ -67,14 +69,17 @@ elif [ ! -f "$WALLPAPER_DIR/$WALLPAPER_FILE" ]; then
     echo -e "${YELLOW}Kopier $WALLPAPER_FILE til $WALLPAPER_DIR manuelt${NC}"
 fi
 
-# Lag swww startup script
-echo -e "${GREEN}Lager swww startup script...${NC}"
+# Lag swww startup script i scripts mappen
+echo -e "${GREEN}Lager swww startup script i $SCRIPTS_DIR...${NC}"
 
 cat > "$SWWW_SCRIPT" << EOF
 #!/bin/bash
 
 # SWWW Wallpaper Setter - Archruud
 # Dette scriptet starter swww daemon og setter wallpaper
+
+WALLPAPER_DIR="\$HOME/.config/hypr/wallpapers"
+WALLPAPER_FILE="$WALLPAPER_FILE"
 
 # Start swww daemon (hvis ikke allerede kjører)
 if ! pgrep -x swww-daemon > /dev/null; then
@@ -83,7 +88,7 @@ if ! pgrep -x swww-daemon > /dev/null; then
 fi
 
 # Sett wallpaper med fade transition
-swww img "$WALLPAPER_DIR/$WALLPAPER_FILE" \\
+swww img "\$WALLPAPER_DIR/\$WALLPAPER_FILE" \\
     --transition-type fade \\
     --transition-duration 2 \\
     --transition-fps 60
@@ -91,13 +96,13 @@ swww img "$WALLPAPER_DIR/$WALLPAPER_FILE" \\
 # Alternativt: random transition hver gang
 # TRANSITIONS=("fade" "wipe" "grow" "wave")
 # RANDOM_TRANSITION=\${TRANSITIONS[\$RANDOM % \${#TRANSITIONS[@]}]}
-# swww img "$WALLPAPER_DIR/$WALLPAPER_FILE" --transition-type \$RANDOM_TRANSITION
+# swww img "\$WALLPAPER_DIR/\$WALLPAPER_FILE" --transition-type \$RANDOM_TRANSITION
 EOF
 
 chmod +x "$SWWW_SCRIPT"
-echo -e "${GREEN}Startup script opprettet: $SWWW_SCRIPT${NC}"
+echo -e "${GREEN}✓ Startup script opprettet: $SWWW_SCRIPT${NC}"
 
-# Sjekk om swww allerede er i hyprland.conf
+# Sjekk om hyprland.conf finnes
 if [ ! -f "$HYPRLAND_CONFIG" ]; then
     echo -e "${RED}Feil: Kan ikke finne $HYPRLAND_CONFIG${NC}"
     exit 1
@@ -111,16 +116,13 @@ sed -i '/exec-once.*hyprpaper/d' "$HYPRLAND_CONFIG"
 # Legg til swww startup script i hyprland.conf
 echo -e "${GREEN}Legger til swww i hyprland.conf...${NC}"
 
-# Finn AUTOSTART seksjonen og legg til der
 if grep -q "### AUTOSTART ###" "$HYPRLAND_CONFIG"; then
-    # Legg til etter AUTOSTART header
-    sed -i '/### AUTOSTART ###/a exec-once = ~/.config/hypr/swww-wallpaper.sh' "$HYPRLAND_CONFIG"
+    sed -i '/### AUTOSTART ###/a exec-once = ~/.config/hypr/scripts/swww-wallpaper.sh' "$HYPRLAND_CONFIG"
 else
-    # Legg til på toppen av filen (etter kommentarer)
-    sed -i '/^[^#]/i exec-once = ~/.config/hypr/swww-wallpaper.sh' "$HYPRLAND_CONFIG"
+    sed -i '/^[^#]/i exec-once = ~/.config/hypr/scripts/swww-wallpaper.sh' "$HYPRLAND_CONFIG"
 fi
 
-echo -e "${GREEN}SWWW aktivert i hyprland.conf${NC}"
+echo -e "${GREEN}✓ SWWW aktivert i hyprland.conf${NC}"
 
 # Test swww nå
 echo ""
@@ -151,8 +153,5 @@ echo "  Start daemon: swww-daemon &"
 echo ""
 echo -e "${YELLOW}Transitions du kan bruke:${NC}"
 echo "  fade, wipe, grow, wave, outer, random"
-echo ""
-echo -e "${YELLOW}Eksempel kommando:${NC}"
-echo "  swww img $WALLPAPER_DIR/$WALLPAPER_FILE --transition-type wave --transition-duration 3"
 echo ""
 echo -e "${CYAN}SWWW vil starte automatisk ved neste Hyprland oppstart!${NC}"
