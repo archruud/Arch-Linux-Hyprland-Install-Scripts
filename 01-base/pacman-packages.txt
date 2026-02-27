@@ -1,20 +1,18 @@
 # Pacman Packages - Standalone installasjon
 # Programmer som ikke trenger konfigurasjon
 # Ett program per linje, linjer som starter med # er kommentarer
+# NB: polkit installeres av archinstall - ikke nødvendig her
 
 # === SYSTEM UTILITIES ===
 brightnessctl          # Lysstyrke kontroll (fungerer med keyboard)
 power-profiles-daemon  # Power management (fungerer automatisk)
 pavucontrol            # Audio kontroll GUI
 playerctl              # Media player kontroll
-polkit-gnome           # Polkit authentication agent
+polkit-gnome           # Polkit authentication agent for GNOME/Hyprland
 gnome-keyring          # Keyring for passord
 xdg-desktop-portal-hyprland  # Desktop portal for Hyprland
 xdg-user-dirs          # User directories
-polkit                 # Passwords
-udisks2                # Disks
-polkit-gnome           # Disks
-gnome-keyring          # Passwords
+udisks2                # Disk management
 
 # === TERMINAL & TOOLS ===
 kitty                  # Terminal emulator
@@ -23,7 +21,7 @@ curl                   # Transfer tool
 git                    # Version control
 bat                    # Cat replacement
 eza                    # Ls replacement
-jq                     # Java
+jq                     # JSON processor
 
 # === FONTS ===
 ttf-jetbrains-mono-nerd    # JetBrains Mono Nerd Font
@@ -59,7 +57,7 @@ pipewire-alsa          # ALSA compatibility
 pipewire-jack          # JACK compatibility
 wireplumber            # Session manager
 alsa-utils             # ALSA utilities
-pamixer                # Audio
+pamixer                # Audio mixer CLI
 
 # === DEVELOPMENT (optional) ===
 python
@@ -73,8 +71,8 @@ slurp                  # Region selector
 swappy                 # Screenshot editor
 
 # === PAKKING ===
-unzip # Pakker ut ZIP-filer
-unrar # Pakker ut RAR-filer
-p7zip # Pakker ut 7z og mange andre formater
-zip # Lager ZIP-filer
-ark # KDE arkivbehandler med GUI
+unzip                  # Pakker ut ZIP-filer
+unrar                  # Pakker ut RAR-filer
+p7zip                  # Pakker ut 7z og mange andre formater
+zip                    # Lager ZIP-filer
+ark                    # KDE arkivbehandler med GUI

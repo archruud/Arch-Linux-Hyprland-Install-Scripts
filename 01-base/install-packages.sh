@@ -124,7 +124,9 @@ if [ -f "$AUR_LIST" ]; then
                     echo -e "${GREEN}Installerer: $pkg${NC}"
                     
                     if command -v yay &> /dev/null; then
-                        yay -S --needed --noconfirm "$pkg"
+                        # --answerdiff=None og --answerclean=None håndterer AUR-spørsmål
+                        # uten å henge seg opp slik --noconfirm gjør med visse pakker (f.eks hdrop-git)
+                        yay -S --needed --answerdiff=None --answerclean=None "$pkg"
                     elif command -v paru &> /dev/null; then
                         paru -S --needed --noconfirm "$pkg"
                     fi
