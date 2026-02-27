@@ -44,7 +44,7 @@ mkdir -p "$DEST_HYPR/scripts"
 if [ -f "$SOURCE_HYPRLAND" ]; then
     echo "📁 Kopierer hyprland.conf til $DEST_HYPR"
     cp -f "$SOURCE_HYPRLAND" "$DEST_HYPR/hyprland.conf"
-    
+
     if [ $? -eq 0 ]; then
         echo "✓ hyprland.conf kopiert"
     else
@@ -58,7 +58,7 @@ echo ""
 if [ -d "$SOURCE_SCRIPTS" ]; then
     echo "📁 Kopierer scripts til $DEST_HYPR/scripts"
     cp -rf "$SOURCE_SCRIPTS/"* "$DEST_HYPR/scripts/"
-    
+
     if [ $? -eq 0 ]; then
         echo "✓ Scripts kopiert"
     else
@@ -68,9 +68,18 @@ fi
 
 echo ""
 
-# Gjør alle scripts kjørbare
+# Gjør ALLE scripts kjørbare (inkludert filer i undermapper)
 echo "🔧 Gjør scripts kjørbare..."
-chmod +x "$DEST_HYPR/scripts/"* 2>/dev/null
+find "$DEST_HYPR/scripts" -type f -exec chmod +x {} \;
+
+if [ $? -eq 0 ]; then
+    echo "✓ Alle scripts er nå kjørbare"
+    echo ""
+    echo "  Filer som ble gjort kjørbare:"
+    find "$DEST_HYPR/scripts" -type f | sort | sed 's/^/    - /'
+else
+    echo "✗ Feil ved chmod"
+fi
 
 echo ""
 echo "══════════════════════════════════════════════════════════════"
